@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author thaycacac
+ * @author Thaycacac
  */
 public class KnightsTest {
     
@@ -40,14 +40,14 @@ public class KnightsTest {
     }
 
     /**
-     * Test of deleteBoard method, of class Knights.
+     * Test of clearBoard method, of class Knights.
      */
     @Test
-    public void testDeleteBoard() {
-        System.out.println("deleteBoard");
+    public void testClearBoard() {
+        System.out.println("clearBoard");
         int[][] board = null;
         int n = 0;
-        Knights.deleteBoard(board, n);
+        Knights.clearBoard(board, n);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

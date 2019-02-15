@@ -209,15 +209,15 @@ public class BlackBox {
      * Input: "9" Expected result: null
      *
      */
-//    @Test
-//    public void testcase9_SolveKnightTour() {
-//        System.out.println("Test case 9 - Boundary value analysis test");
-//        System.out.println("Test Boundary value 4: 9");
-//        int[][] board = new int[MAX][MAX];
-//        String n = "9";
-//        int[][] expResult = null;
-//        int[][] result = Knights.solveKnightTour(board, n);
-//        assertArrayEquals(expResult, result);
-//        System.out.println("----------------------------------------");
-//    }
+    @Test
+    public void testcase9_SolveKnightTour() {
+        System.out.println("Test case 9 - Boundary value analysis test");
+        System.out.println("Test Boundary value 4: 9");
+        int[][] board = new int[MAX][MAX];
+        String n = "9";
+        int[][] expResult = null;
+        int[][] result = Knights.solveKnightTour(board, n);
+        assertArrayEquals(expResult, result);
+        System.out.println("----------------------------------------");
+    }
 }

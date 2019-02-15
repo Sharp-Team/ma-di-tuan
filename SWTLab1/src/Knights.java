@@ -12,8 +12,9 @@ public class Knights {
     final static int[] DX = {2, 1, -1, -2, -2, -1, 1, 2};
     final static int[] DY = {-1, -2, -2, -1, 1, 2, 2, 1};
 
-    private static boolean isSafe(int u, int v, int[][] board, int n) {
-        return (0 <= u) && (u < n) && (0 <= v) && (v < n) && (board[u][v] == 0);
+    private static boolean isSafe(int positionX, int positionY, int[][] board, int n) {
+        return (0 <= positionX) && (positionX < n) && (0 <= positionY) 
+                && (positionY < n) && (board[positionX][positionY] == 0);
     }
 
     public static void displayBoard(int[][] matrix, int n) {
@@ -26,28 +27,28 @@ public class Knights {
         }
     }
 
-    private static boolean solveProblem(int i, int x, int y, int[][] board, int n) {
-        int k, next_x, next_y;
-        if (i > n * n) {
+    private static boolean solveProblem(int countStep, int positionXCurrent, int positionYCurrent, int[][] board, int n) {
+        int k, nextX, nextY;
+        if (countStep > n * n) {
             return true;
         }
 
         for (k = 0; k < 8; k++) {
-            next_x = x + DX[k];
-            next_y = y + DY[k];
-            if (isSafe(next_x, next_y, board, n)) {
-                board[next_x][next_y] = i;
-                if (solveProblem(i + 1, next_x, next_y, board, n)) {
+            nextX = positionXCurrent + DX[k];
+            nextY = positionYCurrent + DY[k];
+            if (isSafe(nextX, nextY, board, n)) {
+                board[nextX][nextY] = countStep;
+                if (solveProblem(countStep + 1, nextX, nextY, board, n)) {
                     return true;
                 } else {
-                    board[next_x][next_y] = 0;
+                    board[nextX][nextY] = 0;
                 }
             }
         }
         return false;
     }
 
-    public static void deleteBoard(int[][] board, int n) {
+    public static void clearBoard(int[][] board, int n) {
         int i, j;
         for (i = 0; i <= n - 1; i++) {
             for (j = 0; j <= n - 1; j++) {
@@ -60,7 +61,7 @@ public class Knights {
         int n = 0;
         try {
             n = Integer.parseInt(input);
-            if (n < 1 || n > 10) {
+            if (n < 1 || n > 8) {
                 throw new Exception();
             }
         } catch (NumberFormatException e) {
@@ -74,16 +75,15 @@ public class Knights {
 
     public static int[][] solveKnightTour(int[][] board, String input) {
         int n = checkInput(input);
-        if (n > 0) {
-            deleteBoard(board, n);
+        if (n != 0) {
+            clearBoard(board, n);
             board = new int [n][n];
             board[0][0] = 1;
             if (!solveProblem(2, 0, 0, board, n)) {
                 System.out.println("The solution does not exist");
             } else {
-//                displayBoard(board, n);
+                displayBoard(board, n);
             }
-            displayBoard(board, n);
             return board;
         }
         return null;
