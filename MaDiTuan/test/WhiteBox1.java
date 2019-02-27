@@ -8,8 +8,8 @@ import org.junit.Test;
  *
  * @author Thaycacac
  */
-public class WhiteBox {
-    public WhiteBox() {
+public class WhiteBox1 {
+    public WhiteBox1() {
     }
     
     @BeforeClass

@@ -34,7 +34,7 @@ public class Knights1 {
             System.err.println("The solution does not exist");
             return null;
         } else {
-            display(board, n);
+            display();
             return board;
         }
     }
@@ -58,11 +58,10 @@ public class Knights1 {
         return false;
     }
 
-    public static void display(int[][] matrix, int n) {
-        int i, j;
-        for (i = 0; i <= n - 1; i++) {
-            for (j = 0; j <= n - 1; j++) {
-                System.out.printf(matrix[i][j] + " ");
+    public static void display() {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.printf(board[i][j] + " ");
             }
             System.out.print("\n");
         }
