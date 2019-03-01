@@ -7,6 +7,9 @@ import static org.junit.Assert.*;
  *
  * @author Thaycacac
  */
+/*
+    Tốt lắm con trai
+*/
 public class BlackBox {
 
     public BlackBox() {
